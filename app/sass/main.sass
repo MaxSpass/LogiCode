@@ -1,3 +1,195 @@
-@import 'mixin/mixins','mixin/normalize','mixin/smart-grid.sass';
+@import 'mixin/mixins', 'mixin/normalize', '_grid.sass'
 
-@import 'mixin/smart-grid-presentation.sass';
+$headerHeight: 80px
+$ffRusso: 'Russo One', Arial, sans-serif
+
+body
+  background: #fff
+
+a:focus
+  outline: none
+
+.button
+  display: inline-block
+  padding: 20px 45px
+  color: #000
+  cursor: pointer
+  max-width: 200px
+  text-align: center
+  background: #fff
+  border-radius: 2px
+  user-select: none
+  font-size: 22px
+
+// header
+.header
+
+.header__inner
+  height: $headerHeight
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+.logo
+  color: #000
+  text-decoration: none
+  font-family: $ffRusso
+  font-size: 35px
+  &:focus,&:hover
+    text-decoration: none
+    outline: none
+
+.header__nav
+
+.header__list
+  display: flex
+
+.header__item
+  &:not(:last-child)
+    margin-right: 30px
+
+.header__link
+  position: relative
+  color: #000
+  text-transform: uppercase
+  text-decoration: none
+  font-size: 22px
+  transition: all .3s ease
+  &::after
+    content: ''
+    display: block
+    position: absolute
+    top: 100%
+    left: 0
+    right: 0
+    margin: 0 auto
+    width: 0
+    height: 1px
+    background: #000
+    transition: all .3s ease-in-out
+  &:hover
+    &::after
+      width: 100%
+  &.focused
+    font-weight: 600
+
+
+// main
+.main
+  .main__top
+    background: #000
+
+.main__front
+  height: calc(100vh - 80px)
+  padding: 7% 0
+  color: #fff
+  background: #000
+
+.main__slogan
+  &-title
+    font-weight: 400
+    font-size: 42px
+
+.main__code
+  display: flex
+  margin: 50px 0
+  &-item
+    line-height: 1
+    &:not(:last-child)
+      margin-right: 80px
+    &-letter
+      text-transform: uppercase
+      font-size: 200px
+    &-key
+      text-align: center
+      text-transform: lowercase
+      font-size: 25px
+
+.main__action
+  margin-top: 30px
+
+
+// about
+.about
+  font-size: 24px
+
+.about__inner
+  padding: 90px 16%
+
+.about__text
+  font-weight: 300
+  line-height: 1.5
+  &:not(:last-child)
+    margin-bottom: 50px
+
+.about__focused
+  padding: 65px 0
+  background: #000
+
+.about__title
+  color: #fff
+  font-size: 25px
+  font-weight: 600
+
+// services
+.services__list
+
+
+.services__item
+
+.services__title
+
+.services__desc
+
+.services__link
+
+
+
+// tech
+.tech
+
+.tech__head
+
+.tech__title
+
+.tech__focus
+
+
+.tech__list
+
+.tech__item
+
+.tech__link
+
+.tech__img
+
+.tech__title
+
+
+// feedback
+.feedback__title
+
+.feedback__laptop
+  &-top
+  &-bottom
+
+.feedback__thnx
+
+
+.feedback__form
+
+.feedback__input_wrap
+
+.feedback__input
+  &-textarea
+
+.feedback__label
+
+.feedback__submit
+
+
+// footer
+.footer
+
+.footer__copyright
+  &-web

@@ -21,7 +21,6 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-uglifyjs": "^0.6.2",
-    "imagemin-pngquant": "^5.0.0",
-    "smart-grid": "^1.0.5"
+    "imagemin-pngquant": "^5.0.0"
   }
 }
