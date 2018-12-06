@@ -1,8 +1,19 @@
-@import 'mixin/mixins', 'mixin/normalize', '_grid.sass', '_cube.scss'
+@import 'mixin/mixins'
+@import 'mixin/normalize'
+@import '_fonts'
+@import '_button-animate'
+@import '_grid.sass'
+@import '_cube.scss'
+@import 'mixin/smart-grid.sass'
 
 
+$greenDark: #12232a
+$greenLight: #2e4c5c
+$gradientToLeft: linear-gradient(to right, #2c5364, #203a43, #0f2027)
+$gradientToRight: linear-gradient(to right, #0f2027, #203a43, #2c5364)
 $headerHeight: 80px
 $ffRusso: 'Russo One', Arial, sans-serif
+$ffHelv: 'HelveticaNeueCyr', Arial, sans-serif
 
 *
   margin: 0
@@ -11,10 +22,11 @@ $ffRusso: 'Russo One', Arial, sans-serif
 
 body
   background: #fff
+  font-family: $ffHelv
 
 .hidden
   display: none
-  
+
 a:focus
   outline: none
 
@@ -26,16 +38,16 @@ input:-webkit-autofill:active
   -webkit-box-shadow: 0 0 0 30px white inset
 
 .button
-  display: inline-block
-  padding: 14px 22px
-  color: #000
-  cursor: pointer
-  max-width: 200px
-  text-align: center
-  background: #fff
-  border-radius: 2px
-  user-select: none
-  font-size: 22px
+  letter-spacing: 1px
+  font-weight: 100
+  &-dark
+    background: rgba(0, 0, 0, 0.15)
+    span::before,span::after
+      background: #fff
+  &-light
+    background: #fff
+    span::before,span::after
+      background: #000
 
 // header
 .header
@@ -45,13 +57,14 @@ input:-webkit-autofill:active
   display: flex
   justify-content: space-between
   align-items: center
+  flex-wrap: wrap
 
 .logo
   color: #000
   text-decoration: none
   font-family: $ffRusso
   font-size: 30px
-  &:focus,&:hover
+  &:focus, &:hover
     text-decoration: none
     outline: none
 
@@ -89,44 +102,41 @@ input:-webkit-autofill:active
   &.focused
     font-weight: 600
 
-
 // main
 .main
 
 .main__top
   position: relative
   background: #000
+  background: $gradientToLeft
+
 
 .main__front
   position: relative
-  padding: 7.5% 0
+  padding: 3% 0
   color: #fff
 
 .main__slogan
   &-title
     line-height: 1.5
-    font-weight: 400
+    font-weight: 100
     font-size: 38px
 
 .main__code
-  display: flex
-  margin: 50px 0
+  &-list
+    display: flex
+    margin: 50px 0
   &-item
     line-height: 1
     max-width: 300px
     &:not(:last-child)
-      margin-right: 80px
+      margin-right: 58px
     &-letter
       text-transform: uppercase
-      font-size: 250px
-    &-key
-      text-align: center
-      text-transform: lowercase
-      font-size: 22px
+      font-size: 15vw
 
 .main__action
   margin-top: 30px
-
 
 // about
 .about
@@ -156,31 +166,37 @@ input:-webkit-autofill:active
 
 .about__info
   position: relative
-  padding: 90px 16%
+  padding: 4vw 16%
 
 .about__text
   line-height: 1.5
   //background: #fff
-  font-size: 20px
+  font-size: 18px
   font-weight: 300
   &:not(:last-child)
     padding-bottom: 50px
 
 .about__focused
-  padding: 65px 0
-  background: #000
+  background: $greenDark
+  padding: 50px 0
+  //height: 120px
+  //display: flex
+  //align-items: center
+  //justify-content: center
 
 .about__title
   color: #fff
   text-align: center
-  font-size: 25px
-  font-weight: 600
+  font-size: 20px
+  font-weight: 100
   z-index: 2
+  letter-spacing: 1px
+  text-transform: uppercase
 
 // services
 .services
   background: #757f9a
-  background: linear-gradient(to right, #757f9a 35%, #d7dde8)
+  background: $gradientToRight
   position: relative
   padding: 80px 0
   overflow: hidden
@@ -195,14 +211,14 @@ input:-webkit-autofill:active
   max-width: 400px
   height: 400px
   padding: 50px 45px 100px 45px
+  transition: all .3s ease
   background: #ededed
-  border: 10px solid #000
+  border: 10px solid $greenLight
   box-sizing: border-box
-
 
 .services__title
   font-size: 40px
-  font-weight: 600
+  font-weight: 400
 
 .services__desc
   padding: 30px 0 65px 0
@@ -210,15 +226,15 @@ input:-webkit-autofill:active
 .services__link
   position: absolute
   display: inline-block
-  background: #000
+  background: $greenLight
   color: #fff
-  bottom: 63px
+  bottom: 70px
   margin-left: -85px
   padding: 15px 65px 15px 45px
-  font-size: 22px
+  font-weight: 100
+  font-size: 18px
+  transition: all .3s ease
   text-decoration: none
-
-
 
 // tech
 .tech
@@ -230,20 +246,19 @@ input:-webkit-autofill:active
 
 .tech__focus
 
-
 .tech__img
   display: none
   font-size: 0
-  
+
 .tech__list
   display: flex
   flex-wrap: wrap
   justify-content: center
   margin-top: 50px
   font-size: 0
-  //display: flex
-  //justify-content: space-between
-  //flex-wrap: wrap
+//display: flex
+//justify-content: space-between
+//flex-wrap: wrap
 
 .tech__item
   display: inline-block
@@ -264,7 +279,6 @@ input:-webkit-autofill:active
   text-align: center
   font-size: 18px
 
-
 .tech .about__title
   line-height: 1
   text-transform: uppercase
@@ -274,11 +288,10 @@ input:-webkit-autofill:active
   .tech__title-work
     font-weight: 400
 
-
 // feedback
 .feedback
   padding: 60px 0
-  background: url('../img/form-bg.png') no-repeat 50% 50%
+  background: $gradientToLeft
   background-size: cover
 
 .feedback__title
@@ -286,10 +299,18 @@ input:-webkit-autofill:active
 .feedback__ready
   color: #000
   text-align: center
-  font-weight: 600
-  font-size: 45px
+  font-weight: 400
+  font-size: 40px
 
 .feedback__inner
+  background: #fff
+  padding: 100px
+  margin-top: -30%
+  border-top: 10px solid $greenDark
+  border-left: 10px solid $greenDark
+  border-right: 10px solid $greenLight
+  border-bottom: 10px solid $greenLight
+  box-sizing: border-box
   &-top
     position: relative
   &-bottom
@@ -297,7 +318,6 @@ input:-webkit-autofill:active
 .feedback__thnx
   text-align: center
   font-size: 35px
-
 
 .feedback__form
 
@@ -310,9 +330,9 @@ input:-webkit-autofill:active
   padding: 10px 0
   background: transparent
   transition: all .3s ease
-  border-bottom: 1px solid #000
+  border-bottom: 1px solid $greenLight
   &:hover
-    border-color: grey
+    border-color: $greenDark
   &-textarea
     padding-left: 10px
     border: 1px solid #000
@@ -320,30 +340,54 @@ input:-webkit-autofill:active
 .feedback__label
 
 .feedback__submit
+  display: inline-block
+  padding: 20px 45px
   color: #fff
-  padding: 10px 25px
-  background: #000
-
+  transition: all .3s ease
+  background: $greenLight
+  letter-spacing: 1px
+  font-size: 18px
+  font-weight: 100
+  &:hover
+    background: $greenDark
 
 // footer
 .footer
+  padding: 10px 0
+  text-align: center
 
 .footer__copyright
   &-web
-
 
 .svg__line
   position: absolute
 
 #particle-slider
-  //canvas
-  //  height: 500px
+  .draw
+    display: block
+    margin: 0 auto
 
 
 // @media
-@media screen and (min-width: 992px)
+
++from($break_md + 1)
+  .services__item
+    transform: scale(1)
+    &:hover
+      border-color: $greenDark
+      transform: scale(1.1)
+      .services__link
+        background: $greenDark
+
+  .main__code-list
+    display: none
+  .tech__list
+    padding-bottom: 25%
   .tech__item
-    &:nth-child(4n+4)
+    background: #000
+    margin-right: 52px
+    &:nth-child(5n+5)
+      margin-right: 0
   .services__list
     margin-left: 30px
   .services__item
@@ -354,21 +398,38 @@ input:-webkit-autofill:active
     &:last-child
       align-self: flex-end
 
+// mobile && tablet
++to($break_md)
+  .services
+    padding: 30px 0
+  .services__list
+    align-items: center
+  .services__item
+    height: auto
+    margin-bottom: 20px
+    padding-bottom: 30px
+  .services__link
+    padding: 10px 45px
+    margin-left: -30px
+    bottom: 20px
+    font-size: 18px
+  .tech__list
+    display: flex
+  .tech__item
+    background: blue !important
+    margin-right: 3%
+    margin-bottom: 3%
+
++to($break_xs)
+  .tech__item
+    width: 45%
+    height: 130px
+    margin-right: 0
+    background: orange !important
+    &:nth-child(1n+1)
+      margin-right: 3%
+      margin-bottom: 3%
 
 .main__front
-  display: none
-      
-+from($break_md)
-  .tech__item
-    margin-right: 52px
-    &:nth-child(5n+5)
-      margin-right: 0
-
-+sm-block()
-  .tech__list
-    //justify-content: space-between
-  .tech__item
-    margin-right: 40px
-  //  &:nth-child(4n+4)
-  //    margin-right: 0
+  //display: none
 

@@ -11,7 +11,7 @@ var settings = {
     },
     breakPoints: {
         lg: {
-            'width': '980', /* -> @media (max-width: 1100px) */
+            'width': '980px', /* -> @media (max-width: 1100px) */
             'fields': '10px' /* side fields */
         },
         md: {
@@ -19,11 +19,11 @@ var settings = {
             'fields': '10px'
         },
         sm: {
-            'width': '780px',
+            'width': '770px',
             'fields': '10px'
         },
         xs: {
-            'width': '480',
+            'width': '480px',
             'fields': '10px'
         }
         /* 

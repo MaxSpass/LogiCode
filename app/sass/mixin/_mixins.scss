@@ -40,7 +40,8 @@
       $prefix: '-#{$prefix}-';
     }
 
-    #{$prefix}#{$rule}: unquote($value);
+    #{$prefix}#{$rule}: $value;
+    //#{$prefix}#{$rule}: unquote($value);
   }
 }
 
