@@ -22,5 +22,8 @@
     "gulp-sass": "^3.1.0",
     "gulp-uglifyjs": "^0.6.2",
     "imagemin-pngquant": "^5.0.0"
+  },
+  "dependencies": {
+    "smart-grid": "^2.1.2"
   }
 }

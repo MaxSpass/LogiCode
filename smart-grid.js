@@ -6,25 +6,25 @@ var settings = {
     columns: 12, /* number of grid columns */
     offset: '1%', /* gutter width px || % */
     container: {
-        maxWidth: '1200px', /* max-width оn very large screen */
-        fields: '30px' /* side fields */
+        maxWidth: '980px', /* max-width оn very large screen */
+        fields: '10px' /* side fields */
     },
     breakPoints: {
         lg: {
-            'width': '1100px', /* -> @media (max-width: 1100px) */
-            'fields': '30px' /* side fields */
+            'width': '980', /* -> @media (max-width: 1100px) */
+            'fields': '10px' /* side fields */
         },
         md: {
-            'width': '960px',
-            'fields': '15px'
+            'width': '980px',
+            'fields': '10px'
         },
         sm: {
             'width': '780px',
-            'fields': '15px'
+            'fields': '10px'
         },
         xs: {
-            'width': '560px',
-            'fields': '15px'
+            'width': '480',
+            'fields': '10px'
         }
         /* 
         We can create any quantity of break points.
@@ -37,4 +37,4 @@ var settings = {
     }
 };
  
-smartgrid('./app/sass', settings);
+smartgrid('./app/sass/mixin', settings);

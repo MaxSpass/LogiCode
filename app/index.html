@@ -3,9 +3,13 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Logicode - Bring your bold ideas to life</title>
    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
    <link rel="stylesheet" href="css/main.css">
-   <title>Logicode - Bring your bold ideas to life</title>
+   <script src="http://particleslider.com/js/particleslider/current/particleslider.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.5/TweenMax.min.js"></script>
+   <script src="js/jquery.min.js"></script>
+   <script src="js/common.js"></script>
 </head>
 <body>
 
@@ -41,7 +45,17 @@
             </div>
             <ul class="main__code">
                <li class="main__code-item">
-                  <span class="main__code-item-letter">c</span>
+                  <span class="main__code-item-letter">
+                     <div id="particle-slider2" class="hidden">
+                        <div class="slides">
+                           <div class="slide" data-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQQAAAEsCAYAAAAl981RAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDplYzdhZmM1Ny0xZGY0LTQ5MjYtYTI4Ni05MDg1MDNlNzhhNTMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MDcxRjYxRkVFRjY2MTFFOEI1NThGM0ZDQTdGM0UzNjciIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MDcxRjYxRkRFRjY2MTFFOEI1NThGM0ZDQTdGM0UzNjciIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDplYzdhZmM1Ny0xZGY0LTQ5MjYtYTI4Ni05MDg1MDNlNzhhNTMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6ZWM3YWZjNTctMWRmNC00OTI2LWEyODYtOTA4NTAzZTc4YTUz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">
+                           </div>
+                        </div>
+                        <canvas class="draw" height="500"></canvas>
+                     </div>
+
+                     <span class="main__code-item-letter">c</span>
+                  </span>
                   <p class="main__code-item-key">clean</p>
                </li>
                <li class="main__code-item">
@@ -63,10 +77,15 @@
    </div>
 
    <div id="about" class="about">
-      <div class="container">
+
+      <div class="about__top">
          <div class="about__inner">
-            <p class="about__text">Logicode builds majestic websites that help our customers to achieve their business goals.  </p>
-            <p class="about__text">Logicode is a company with exceptional web development experience to establish your brand and automatize processes. We develop the best web solution for your needs by delivering high-quality services within web development, hosting and databases.</p>
+            <div class="container">
+               <div class="about__info">
+                  <p class="about__text">Logicode builds majestic websites that help our customers to achieve their business goals.  </p>
+                  <p class="about__text">Logicode is a company with exceptional web development experience to establish your brand and automatize processes. We develop the best web solution for your needs by delivering high-quality services within web development, hosting and databases.</p>
+               </div>
+            </div>
          </div>
       </div>
       <div class="about__focused">
@@ -79,6 +98,40 @@
    </div>
 
    <div id="services" class="services">
+
+      <div id="cubes" class="cube__wrapper hide">
+         <div class="cube">
+            <div class="inner" style="transform: rotate3d(0.51,0.002,0.878,90deg)">
+               <div class="front"></div>
+               <div class="top"></div>
+               <div class="right"></div>
+               <div class="bottom"></div>
+               <div class="left"></div>
+               <div class="back"></div>
+            </div>
+         </div>
+         <div class="cube">
+            <div class="inner" style="transform: rotate3d(0.011,0.104,0.59,90deg)">
+               <div class="front"></div>
+               <div class="top"></div>
+               <div class="right"></div>
+               <div class="bottom"></div>
+               <div class="left"></div>
+               <div class="back"></div>
+            </div>
+         </div>
+         <div class="cube">
+            <div class="inner" style="transform: rotate3d(0.608,0.945,0.489,90deg)">
+               <div class="front"></div>
+               <div class="top"></div>
+               <div class="right"></div>
+               <div class="bottom"></div>
+               <div class="left"></div>
+               <div class="back"></div>
+            </div>
+         </div>
+      </div>
+
       <div class="container">
          <ul class="services__list">
             <li class="services__item">
@@ -99,110 +152,113 @@
             </li>
          </ul>
 
+      </div>
+   </div>
 
-         <div id="tech" class="tech">
+   <div id="tech" class="tech">
 
-            <div class="tech__head">
-               <h2 class="tech__title">
-                  web technologies
-               </h2>
-               <span class="tech__focus">we work with</span>
-            </div>
-
-            <ul class="tech__list">
-               <li class="tech__item">
-                  <span href="" class="tech__link">
-                     <img src="" alt="" class="tech__img">
-                     <p class="tech__title">Microsoft .NET</p>
-                  </span>
-               </li>
-               <li class="tech__item">
-                  <span href="" class="tech__link">
-                     <img src="" alt="" class="tech__img">
-                     <p class="tech__title">PHP</p>
-                  </span>
-               </li>
-               <li class="tech__item">
-                  <span href="" class="tech__link">
-                     <img src="" alt="" class="tech__img">
-                     <p class="tech__title">Laravel</p>
-                  </span>
-               </li>
-               <li class="tech__item">
-                  <span href="" class="tech__link">
-                     <img src="" alt="" class="tech__img">
-                     <p class="tech__title">Symphony</p>
-                  </span>
-               </li>
-               <li class="tech__item">
-                  <span href="" class="tech__link">
-                     <img src="" alt="" class="tech__img">
-                     <p class="tech__title">YiiFramework</p>
-                  </span>
-               </li>
-               <li class="tech__item">
-                  <span href="" class="tech__link">
-                     <img src="" alt="" class="tech__img">
-                     <p class="tech__title">HTML5</p>
-                  </span>
-               </li>
-               <li class="tech__item">
-                  <span href="" class="tech__link">
-                     <img src="" alt="" class="tech__img">
-                     <p class="tech__title">Bootstrap 3/4</p>
-                  </span>
-               </li>
-               <li class="tech__item">
-                  <span href="" class="tech__link">
-                     <img src="" alt="" class="tech__img">
-                     <p class="tech__title">NodeJS</p>
-                  </span>
-               </li>
-               <li class="tech__item">
-                  <span href="" class="tech__link">
-                     <img src="" alt="" class="tech__img">
-                     <p class="tech__title">AngularJS</p>
-                  </span>
-               </li>
-               <li class="tech__item">
-                  <span href="" class="tech__link">
-                     <img src="" alt="" class="tech__img">
-                     <p class="tech__title">ReactJS</p>
-                  </span>
-               </li>
-               <li class="tech__item">
-                  <span href="" class="tech__link">
-                     <img src="" alt="" class="tech__img">
-                     <p class="tech__title">VueJS</p>
-                  </span>
-               </li>
-               <li class="tech__item">
-                  <span href="" class="tech__link">
-                     <img src="" alt="" class="tech__img">
-                     <p class="tech__title">jQuery</p>
-                  </span>
-               </li>
-               <li class="tech__item">
-                  <span href="" class="tech__link">
-                     <img src="" alt="" class="tech__img">
-                     <p class="tech__title">MongoDB</p>
-                  </span>
-               </li>
-               <li class="tech__item">
-                  <span href="" class="tech__link">
-                     <img src="" alt="" class="tech__img">
-                     <p class="tech__title">MySQL</p>
-                  </span>
-               </li>
-               <li class="tech__item">
-                  <span href="" class="tech__link">
-                     <img src="" alt="" class="tech__img">
-                     <p class="tech__title">WordPress</p>
-                  </span>
-               </li>
-            </ul>
-
+      <div class="about__focused">
+         <div class="container">
+            <h3 class="about__title">
+               <span class="tech__title-sub">web technologies</span>
+               <span class="tech__title-work">we work with</span>
+            </h3>
          </div>
+      </div>
+
+      <div class="container">
+         <ul class="tech__list">
+            <li class="tech__item">
+               <a href="" class="tech__link">
+                  <img src="" alt="" class="tech__img">
+                  <p class="tech__title">Microsoft .NET</p>
+               </a>
+            </li>
+            <li class="tech__item">
+               <a href="" class="tech__link">
+                  <img src="" alt="" class="tech__img">
+                  <p class="tech__title">PHP</p>
+               </a>
+            </li>
+            <li class="tech__item">
+               <a href="" class="tech__link">
+                  <img src="" alt="" class="tech__img">
+                  <p class="tech__title">Laravel</p>
+               </a>
+            </li>
+            <li class="tech__item">
+               <a href="" class="tech__link">
+                  <img src="" alt="" class="tech__img">
+                  <p class="tech__title">Symphony</p>
+               </a>
+            </li>
+            <li class="tech__item">
+               <a href="" class="tech__link">
+                  <img src="" alt="" class="tech__img">
+                  <p class="tech__title">YiiFramework</p>
+               </a>
+            </li>
+            <li class="tech__item">
+               <a href="" class="tech__link">
+                  <img src="" alt="" class="tech__img">
+                  <p class="tech__title">HTML5</p>
+               </a>
+            </li>
+            <li class="tech__item">
+               <a href="" class="tech__link">
+                  <img src="" alt="" class="tech__img">
+                  <p class="tech__title">Bootstrap 3/4</p>
+               </a>
+            </li>
+            <li class="tech__item">
+               <a href="" class="tech__link">
+                  <img src="" alt="" class="tech__img">
+                  <p class="tech__title">NodeJS</p>
+               </a>
+            </li>
+            <li class="tech__item">
+               <a href="" class="tech__link">
+                  <img src="" alt="" class="tech__img">
+                  <p class="tech__title">AngularJS</p>
+               </a>
+            </li>
+            <li class="tech__item">
+               <a href="" class="tech__link">
+                  <img src="" alt="" class="tech__img">
+                  <p class="tech__title">ReactJS</p>
+               </a>
+            </li>
+            <li class="tech__item">
+               <a href="" class="tech__link">
+                  <img src="" alt="" class="tech__img">
+                  <p class="tech__title">VueJS</p>
+               </a>
+            </li>
+            <li class="tech__item">
+               <a href="" class="tech__link">
+                  <img src="" alt="" class="tech__img">
+                  <p class="tech__title">jQuery</p>
+               </a>
+            </li>
+            <li class="tech__item">
+               <a href="" class="tech__link">
+                  <img src="" alt="" class="tech__img">
+                  <p class="tech__title">MongoDB</p>
+               </a>
+            </li>
+            <li class="tech__item">
+               <a href="" class="tech__link">
+                  <img src="" alt="" class="tech__img">
+                  <p class="tech__title">MySQL</p>
+               </a>
+            </li>
+            <li class="tech__item">
+               <a href="" class="tech__link">
+                  <img src="" alt="" class="tech__img">
+                  <p class="tech__title">WordPress</p>
+               </a>
+            </li>
+         </ul>
       </div>
    </div>
 
@@ -210,37 +266,38 @@
       <div class="container">
          <h4 class="feedback__title"></h4>
 
-         <div class="feedback__laptop">
-            <span class="feedback__thnx">Thank you for contacting. We will reply soon</span>
-            <div class="feedback__laptop-top">
+         <div class="feedback__inner">
+            <div class="feedback__ready">Ready to work with us? Tell us more.</div>
+            <div class="feedback__inner-top">
+               <div class="feedback__thnx hide">Thank you for contacting. We will reply soon</div>
                <form id="feedbackForm" class="feedback__form">
                   <div class="feedback__input_wrap">
-                     <input id="input-name" name="name" type="text" class="feedback__input">
-                     <label for="input-name" class="feedback__label">Name</label>
+                     <input id="input-name" name="name" type="text" class="feedback__input" placeholder="Name">
+                     <!--<label for="input-name" class="feedback__label">Name</label>-->
                   </div>
                   <div class="feedback__input_wrap">
-                     <input id="input-email" name="email" type="email" class="feedback__input">
-                     <label for="input-email" class="feedback__label">Email address</label>
+                     <input id="input-email" name="email" type="email" class="feedback__input" placeholder="Email address">
+                     <!--<label for="input-email" class="feedback__label">Email address</label>-->
                   </div>
                   <div class="feedback__input_wrap">
-                     <select id="input-budget" name="budget" class="feedback__input">
-                        <option value="not_chosen">Not chosen</option>
-                        <option value="500"><1000$</option>
-                        <option value="3000">3000$</option>
-                        <option value="5000">5000$</option>
-                        <option value="10000">10000$</option>
-                     </select>
-                     <label for="input-budget" class="feedback__label">Your budget</label>
+                     <!--<select id="input-budget" name="budget" class="feedback__input">-->
+                        <!--<option value="not_chosen">I don't know</option>-->
+                        <!--<option value="500"><10000$</option>-->
+                        <!--<option value="3000">20000$</option>-->
+                        <!--<option value="5000">30000$</option>-->
+                        <!--<option value="10000">10000$</option>-->
+                     <!--</select>-->
+                     <label class="feedback__label">Your budget</label>
                   </div>
                   <div class="feedback__input_wrap">
-                     <textarea id="input-brief" name="brief" type="text" class="feedback__input feedback__input-textarea"></textarea>
-                     <label for="input-brief" class="feedback__label">Brief about the project:</label>
+                     <textarea id="input-brief" name="brief" type="text" class="feedback__input feedback__input-textarea" placeholder="Brief about the project:"></textarea>
+                     <!--<label for="input-brief" class="feedback__label">Brief about the project:</label>-->
                   </div>
                   <button form="feedbackForm" class="feedback__submit" type="submit">Submit</button>
                </form>
             </div>
 
-            <div class="feedback__laptop-bottom"></div>
+            <div class="feedback__inner-bottom"></div>
          </div>
 
 
@@ -254,11 +311,37 @@
       </div>
    </footer>
 
-
 </main>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/common.js"></script>
+
+<script type="text/javascript">
+
+    // Create a new Particle
+    if($('#particle-slider').length) {
+        var ps = new ParticleSlider({
+            width: 1920,
+            ptlGap: 1 ,
+            mouseForce: 100,
+            monochrome: true,
+            color: '#fff',
+            ptlSize: 1,
+
+        });
+
+        var ptl = new ps.Particle(ps);
+
+        // Set time to live of Particle to20 frames.
+        ptl.ttl = 20;
+    }
+
+
+    $(function() {
+        new app.home();
+    });
+
+
+</script>
+
 </body>
 </html>
 

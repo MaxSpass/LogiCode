@@ -1,17 +1,33 @@
-@import 'mixin/mixins', 'mixin/normalize', '_grid.sass'
+@import 'mixin/mixins', 'mixin/normalize', '_grid.sass', '_cube.scss'
+
 
 $headerHeight: 80px
 $ffRusso: 'Russo One', Arial, sans-serif
 
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
 body
   background: #fff
 
+.hidden
+  display: none
+  
 a:focus
   outline: none
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active
+  background: transparent
+  -webkit-box-shadow: 0 0 0 30px white inset
+
 .button
   display: inline-block
-  padding: 20px 45px
+  padding: 14px 22px
   color: #000
   cursor: pointer
   max-width: 200px
@@ -34,7 +50,7 @@ a:focus
   color: #000
   text-decoration: none
   font-family: $ffRusso
-  font-size: 35px
+  font-size: 30px
   &:focus,&:hover
     text-decoration: none
     outline: none
@@ -53,7 +69,7 @@ a:focus
   color: #000
   text-transform: uppercase
   text-decoration: none
-  font-size: 22px
+  font-size: 18px
   transition: all .3s ease
   &::after
     content: ''
@@ -76,34 +92,37 @@ a:focus
 
 // main
 .main
-  .main__top
-    background: #000
+
+.main__top
+  position: relative
+  background: #000
 
 .main__front
-  height: calc(100vh - 80px)
-  padding: 7% 0
+  position: relative
+  padding: 7.5% 0
   color: #fff
-  background: #000
 
 .main__slogan
   &-title
+    line-height: 1.5
     font-weight: 400
-    font-size: 42px
+    font-size: 38px
 
 .main__code
   display: flex
   margin: 50px 0
   &-item
     line-height: 1
+    max-width: 300px
     &:not(:last-child)
       margin-right: 80px
     &-letter
       text-transform: uppercase
-      font-size: 200px
+      font-size: 250px
     &-key
       text-align: center
       text-transform: lowercase
-      font-size: 25px
+      font-size: 22px
 
 .main__action
   margin-top: 30px
@@ -113,14 +132,39 @@ a:focus
 .about
   font-size: 24px
 
+.about__top
+  background: #fff
+
 .about__inner
+
+//  position: relative
+//  overflow: hidden
+//  &::after
+//    content: ''
+//    display: block
+//    position: absolute
+//    margin: 0 auto
+//    top: 0
+//    bottom: 0
+//    left: 0
+//    right: 0
+//    border: 1px solid black
+//    background-attachment: fixed
+//    background-image: linear-gradient(to top, rgba(#000,.2) 1.5px, transparent 1px)
+//    background-size: 100vw 8px
+//    background-repeat: repeat
+
+.about__info
+  position: relative
   padding: 90px 16%
 
 .about__text
-  font-weight: 300
   line-height: 1.5
+  //background: #fff
+  font-size: 20px
+  font-weight: 300
   &:not(:last-child)
-    margin-bottom: 50px
+    padding-bottom: 50px
 
 .about__focused
   padding: 65px 0
@@ -128,25 +172,57 @@ a:focus
 
 .about__title
   color: #fff
+  text-align: center
   font-size: 25px
   font-weight: 600
+  z-index: 2
 
 // services
-.services__list
+.services
+  background: #757f9a
+  background: linear-gradient(to right, #757f9a 35%, #d7dde8)
+  position: relative
+  padding: 80px 0
+  overflow: hidden
 
+.services__list
+  display: flex
+  flex-direction: column
+  justify-content: space-between
 
 .services__item
+  position: relative
+  max-width: 400px
+  height: 400px
+  padding: 50px 45px 100px 45px
+  background: #ededed
+  border: 10px solid #000
+  box-sizing: border-box
+
 
 .services__title
+  font-size: 40px
+  font-weight: 600
 
 .services__desc
+  padding: 30px 0 65px 0
 
 .services__link
+  position: absolute
+  display: inline-block
+  background: #000
+  color: #fff
+  bottom: 63px
+  margin-left: -85px
+  padding: 15px 65px 15px 45px
+  font-size: 22px
+  text-decoration: none
 
 
 
 // tech
 .tech
+  background: #fff
 
 .tech__head
 
@@ -155,37 +231,98 @@ a:focus
 .tech__focus
 
 
+.tech__img
+  display: none
+  font-size: 0
+  
 .tech__list
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  margin-top: 50px
+  font-size: 0
+  //display: flex
+  //justify-content: space-between
+  //flex-wrap: wrap
 
 .tech__item
+  display: inline-block
+  width: 150px
+  height: 150px
+  margin-bottom: 50px
+  box-sizing: border-box
+  background: #000
+  font-size: 0
 
 .tech__link
+  text-decoration: none
 
 .tech__img
 
 .tech__title
+  color: #fff
+  text-align: center
+  font-size: 18px
+
+
+.tech .about__title
+  line-height: 1
+  text-transform: uppercase
+  font-size: 30px
+  .tech__title-sub
+
+  .tech__title-work
+    font-weight: 400
 
 
 // feedback
+.feedback
+  padding: 60px 0
+  background: url('../img/form-bg.png') no-repeat 50% 50%
+  background-size: cover
+
 .feedback__title
 
-.feedback__laptop
+.feedback__ready
+  color: #000
+  text-align: center
+  font-weight: 600
+  font-size: 45px
+
+.feedback__inner
   &-top
+    position: relative
   &-bottom
 
 .feedback__thnx
+  text-align: center
+  font-size: 35px
 
 
 .feedback__form
 
 .feedback__input_wrap
+  position: relative
+  margin-bottom: 15px
 
 .feedback__input
+  width: 100%
+  padding: 10px 0
+  background: transparent
+  transition: all .3s ease
+  border-bottom: 1px solid #000
+  &:hover
+    border-color: grey
   &-textarea
+    padding-left: 10px
+    border: 1px solid #000
 
 .feedback__label
 
 .feedback__submit
+  color: #fff
+  padding: 10px 25px
+  background: #000
 
 
 // footer
@@ -193,3 +330,45 @@ a:focus
 
 .footer__copyright
   &-web
+
+
+.svg__line
+  position: absolute
+
+#particle-slider
+  //canvas
+  //  height: 500px
+
+
+// @media
+@media screen and (min-width: 992px)
+  .tech__item
+    &:nth-child(4n+4)
+  .services__list
+    margin-left: 30px
+  .services__item
+    &:not(:first-child)
+      margin-top: -130px
+    &:nth-child(2)
+      align-self: center
+    &:last-child
+      align-self: flex-end
+
+
+.main__front
+  display: none
+      
++from($break_md)
+  .tech__item
+    margin-right: 52px
+    &:nth-child(5n+5)
+      margin-right: 0
+
++sm-block()
+  .tech__list
+    //justify-content: space-between
+  .tech__item
+    margin-right: 40px
+  //  &:nth-child(4n+4)
+  //    margin-right: 0
+
