@@ -24,6 +24,7 @@
     "imagemin-pngquant": "^5.0.0"
   },
   "dependencies": {
+    "nouislider": "^12.1.0",
     "smart-grid": "^2.1.2"
   }
 }

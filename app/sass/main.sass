@@ -1,3 +1,4 @@
+@import '_variables.sass'
 @import 'mixin/mixins'
 @import 'mixin/normalize'
 @import '_fonts'
@@ -5,15 +6,8 @@
 @import '_grid.sass'
 @import '_cube.scss'
 @import 'mixin/smart-grid.sass'
-
-
-$greenDark: #12232a
-$greenLight: #2e4c5c
-$gradientToLeft: linear-gradient(to right, #2c5364, #203a43, #0f2027)
-$gradientToRight: linear-gradient(to right, #0f2027, #203a43, #2c5364)
-$headerHeight: 80px
-$ffRusso: 'Russo One', Arial, sans-serif
-$ffHelv: 'HelveticaNeueCyr', Arial, sans-serif
+@import '_nouislider.min.scss'
+@import '_nouislider-fix.sass'
 
 *
   margin: 0
@@ -298,13 +292,14 @@ input:-webkit-autofill:active
 
 .feedback__ready
   color: #000
+  line-height: 1
   text-align: center
   font-weight: 400
   font-size: 40px
 
 .feedback__inner
-  background: #fff
-  padding: 100px
+  background: $formBg
+  padding: 70px 100px
   margin-top: -30%
   border-top: 10px solid $greenDark
   border-left: 10px solid $greenDark
@@ -321,23 +316,68 @@ input:-webkit-autofill:active
 
 .feedback__form
 
-.feedback__input_wrap
+.feedback__input_item
   position: relative
-  margin-bottom: 15px
+  &:not(.reverse-budget)
+    margin-bottom: 15px
+  &.reverse
+    display: flex
+    flex-direction: column
+    .feedback__input
+      order: -1
+
+
+::-webkit-input-placeholder,
+select
+  opacity: 1 !important
+  color: $greenDark
+  font-size: 18px
+  font-weight: 300
+  z-index: 1
 
 .feedback__input
   width: 100%
   padding: 10px 0
   background: transparent
   transition: all .3s ease
+  border: none
   border-bottom: 1px solid $greenLight
+  z-index: 2
   &:hover
     border-color: $greenDark
   &-textarea
+    height: 120px
+    resize: none
     padding-left: 10px
     border: 1px solid #000
 
+.feedback__input_item.not-empty
+  .feedback__label
+    top: -5px
+    font-size: 12px
+
 .feedback__label
+  width: 100%
+  display: inline-block
+  color: $greenDark
+  transition: all .3s ease
+  font-size: 14px
+  font-weight: 400
+  opacity: 1
+  z-index: 1
+  &.static
+    margin-bottom: 5px
+  &:not(.static)
+    position: absolute
+    top: 50%
+    left: 0
+    transform: translateY(-50%)
+  &.budget
+    background: $formBg
+    text-align: center
+    margin-top: 15px
+    font-size: 20px
+    font-weight: 300
 
 .feedback__submit
   display: inline-block
@@ -355,6 +395,9 @@ input:-webkit-autofill:active
 .footer
   padding: 10px 0
   text-align: center
+  background: $greenDark
+  color: #fff
+  font-weight: 100
 
 .footer__copyright
   &-web

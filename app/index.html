@@ -6,9 +6,10 @@
    <title>Logicode - Bring your bold ideas to life</title>
    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
    <link rel="stylesheet" href="css/main.css">
-   <script src="http://particleslider.com/js/particleslider/current/particleslider.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.5/TweenMax.min.js"></script>
    <script src="js/jquery.min.js"></script>
+   <script src="js/particleslider.js"></script>
+   <script src="js/vector-functions.js"></script>
+   <script src="js/nouislider.min.js"></script>
    <script src="js/common.js"></script>
 </head>
 <body>
@@ -170,94 +171,64 @@
       <div class="container">
          <ul class="tech__list">
             <li class="tech__item">
-               <a href="" class="tech__link">
-                  <img src="" alt="" class="tech__img">
-                  <p class="tech__title">Microsoft .NET</p>
-               </a>
+               <img src="" alt="" class="tech__img">
+               <p class="tech__title">Microsoft .NET</p>
             </li>
             <li class="tech__item">
-               <a href="" class="tech__link">
-                  <img src="" alt="" class="tech__img">
-                  <p class="tech__title">PHP</p>
-               </a>
+               <img src="" alt="" class="tech__img">
+               <p class="tech__title">PHP</p>
             </li>
             <li class="tech__item">
-               <a href="" class="tech__link">
-                  <img src="" alt="" class="tech__img">
-                  <p class="tech__title">Laravel</p>
-               </a>
+               <img src="" alt="" class="tech__img">
+               <p class="tech__title">Laravel</p>
             </li>
             <li class="tech__item">
-               <a href="" class="tech__link">
-                  <img src="" alt="" class="tech__img">
-                  <p class="tech__title">Symphony</p>
-               </a>
+               <img src="" alt="" class="tech__img">
+               <p class="tech__title">Symphony</p>
             </li>
             <li class="tech__item">
-               <a href="" class="tech__link">
-                  <img src="" alt="" class="tech__img">
-                  <p class="tech__title">YiiFramework</p>
-               </a>
+               <img src="" alt="" class="tech__img">
+               <p class="tech__title">YiiFramework</p>
             </li>
             <li class="tech__item">
-               <a href="" class="tech__link">
-                  <img src="" alt="" class="tech__img">
-                  <p class="tech__title">HTML5</p>
-               </a>
+               <img src="" alt="" class="tech__img">
+               <p class="tech__title">HTML5</p>
             </li>
             <li class="tech__item">
-               <a href="" class="tech__link">
-                  <img src="" alt="" class="tech__img">
-                  <p class="tech__title">Bootstrap 3/4</p>
-               </a>
+               <img src="" alt="" class="tech__img">
+               <p class="tech__title">Bootstrap 3/4</p>
             </li>
             <li class="tech__item">
-               <a href="" class="tech__link">
-                  <img src="" alt="" class="tech__img">
-                  <p class="tech__title">NodeJS</p>
-               </a>
+               <img src="" alt="" class="tech__img">
+               <p class="tech__title">NodeJS</p>
             </li>
             <li class="tech__item">
-               <a href="" class="tech__link">
-                  <img src="" alt="" class="tech__img">
-                  <p class="tech__title">AngularJS</p>
-               </a>
+               <img src="" alt="" class="tech__img">
+               <p class="tech__title">AngularJS</p>
             </li>
             <li class="tech__item">
-               <a href="" class="tech__link">
-                  <img src="" alt="" class="tech__img">
-                  <p class="tech__title">ReactJS</p>
-               </a>
+               <img src="" alt="" class="tech__img">
+               <p class="tech__title">ReactJS</p>
             </li>
             <li class="tech__item">
-               <a href="" class="tech__link">
-                  <img src="" alt="" class="tech__img">
-                  <p class="tech__title">VueJS</p>
-               </a>
+               <img src="" alt="" class="tech__img">
+               <p class="tech__title">VueJS</p>
             </li>
             <li class="tech__item">
-               <a href="" class="tech__link">
-                  <img src="" alt="" class="tech__img">
-                  <p class="tech__title">jQuery</p>
-               </a>
+               <img src="" alt="" class="tech__img">
+               <p class="tech__title">jQuery</p>
             </li>
             <li class="tech__item">
-               <a href="" class="tech__link">
-                  <img src="" alt="" class="tech__img">
-                  <p class="tech__title">MongoDB</p>
-               </a>
+               <img src="" alt="" class="tech__img">
+               <p class="tech__title">MongoDB</p>
             </li>
             <li class="tech__item">
-               <a href="" class="tech__link">
-                  <img src="" alt="" class="tech__img">
-                  <p class="tech__title">MySQL</p>
-               </a>
+               <img src="" alt="" class="tech__img">
+               <p class="tech__title">MySQL</p>
             </li>
             <li class="tech__item">
-               <a href="" class="tech__link">
-                  <img src="" alt="" class="tech__img">
-                  <p class="tech__title">WordPress</p>
-               </a>
+               <img src="" alt="" class="tech__img">
+               <p class="tech__title">WordPress</p>
             </li>
          </ul>
       </div>
@@ -272,22 +243,47 @@
             <div class="feedback__inner-top">
                <div class="feedback__thnx hide">Thank you for contacting. We will reply soon</div>
                <form id="feedbackForm" class="feedback__form">
-                  <div class="feedback__input_wrap">
-                     <input id="input-name" name="name" type="text" class="feedback__input" placeholder="Name">
-                     <!--<label for="input-name" class="feedback__label">Name</label>-->
+                  <div class="feedback__input_item reverse">
+                     <div class="feedback__input_wrap">
+                        <input id="input-name" name="name" type="text" class="feedback__input">
+                     </div>
+                     <label for="input-name" class="feedback__label">Name:</label>
                   </div>
-                  <div class="feedback__input_wrap">
-                     <input id="input-email" name="email" type="email" class="feedback__input" placeholder="Email address">
-                     <!--<label for="input-email" class="feedback__label">Email address</label>-->
+                  <div class="feedback__input_item reverse">
+                     <div class="feedback__input_wrap">
+                        <input id="input-email" name="email" type="email" class="feedback__input">
+                     </div>
+                     <label for="input-email" class="feedback__label">Email address:</label>
                   </div>
-                  <div class="feedback__input_wrap">
-                     <label class="feedback__label">Your budget</label>
+                  <div class="feedback__input_item">
+                     <label for="input-client" class="feedback__label static">You are:</label>
+                     <div class="feedback__input_wrap">
+                        <select id="input-client" name="client" class="feedback__input without-focus">
+                           <option value="No matter" selected>No matter</option>
+                           <option value="Startups">Startups</option>
+                           <option value="Small Businesses">Small Businesses</option>
+                           <option value="Web designers">Web designers</option>
+                        </select>
+                     </div>
                   </div>
-                  <div class="feedback__input_wrap">
-                     <textarea id="input-brief" name="brief" type="text" class="feedback__input feedback__input-textarea" placeholder="Brief about the project:"></textarea>
-                     <!--<label for="input-brief" class="feedback__label">Brief about the project:</label>-->
+                  <div class="feedback__input_item reverse reverse-budget">
+                     <label for="huge-value" class="feedback__label static">Your budget:</label>
+                     <div id="slider-huge"></div>
+                     <div class="feedback__input_wrap">
+                        <input id="huge-value" class="hidden feedback__label static budget" value="I dont't know"/>
+                     </div>
                   </div>
-                  <button form="feedbackForm" class="feedback__submit" type="submit">Submit</button>
+                  <div class="feedback__input_item">
+                     <label for="input-text" class="feedback__label static">Brief about the project:</label>
+                     <div class="feedback__input_wrap">
+                        <textarea id="input-text"
+                                  name="brief"
+                                  type="text"
+                                  class="feedback__input without-focus feedback__input-textarea"
+                        ></textarea>
+                     </div>
+                  </div>
+                  <button form="feedbackForm" class="feedback__submit static" type="submit">Submit</button>
                </form>
             </div>
 
@@ -301,7 +297,7 @@
 
    <footer class="footer">
       <div class="container">
-         <p class="footer__copyright">&copy; <span class="footer__copyright-web">logitech.tech</span></p>
+         <p class="footer__copyright">&copy; <span class="footer__copyright-web">logicode.tech</span></p>
       </div>
    </footer>
 

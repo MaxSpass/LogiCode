@@ -1,0 +1,27 @@
+@import '_variables.sass'
+
+.noUi-horizontal
+  height: 2px
+
+.noUi-target
+ margin-top: 15px
+ padding: 0 10px
+ border-color: $greenLight
+ z-index: 9
+
+.noUi-horizontal .noUi-handle
+  border-radius: 50%
+  border: none
+  background: $gradientLightToLeft
+  box-shadow: none
+  width: 30px
+  height: 30px
+  transition: all .3s ease
+  cursor: pointer
+  top: -15px
+  &::before,&::after
+    display: none
+  &:focus
+    outline: none
+  &.noUi-active
+    background: $gradientLightToRight
