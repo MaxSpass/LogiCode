@@ -1,4 +1,5 @@
 var app = {};
+var winWidth = $(window).width();
 
 function initBudgetSlider() {
     var slider = document.getElementById('slider-huge');
@@ -43,13 +44,11 @@ function formControl() {
     var $input = $form.find('.feedback__input:not(.without-focus)');
 
     $input.on('focus', function(e){
-        console.log('focus',e,e.target.value);
         var $parent = $(e.target).closest('.feedback__input_item');
         $parent.addClass('not-empty')
     });
 
     $input.on('blur', function(e){
-        console.log('blur',e,e.target.value);
         var $parent = $(e.target).closest('.feedback__input_item');
 
         if(!e.target.value.length) {
@@ -57,6 +56,65 @@ function formControl() {
         }
     })
 
+}
+
+function particleInit() {
+    var $slider = $('#particle-slider');
+    if($slider.length && winWidth > 980) {
+        var ps = new ParticleSlider({
+            ptlGap: 2,
+            mouseForce: 500,
+            monochrome: true,
+            color: '#fff',
+            ptlSize: 1,
+            showArrowControls: false
+
+        });
+
+        var ptl = new ps.Particle(ps);
+
+        // Set time to live of Particle to20 frames.
+        ptl.ttl = 20;
+    } else {
+        $slider.remove()
+    }
+}
+
+function menuToggler() {
+    $('#toggle').find('.burger').toggleClass('active');
+    $('#overlay').toggleClass('open');
+    $('body').toggleClass('overflow');
+
+}
+
+function menuTogglerClickInit() {
+    $('#toggle').click(function() {
+        menuToggler();
+    });
+}
+
+function scrollTo(anchor) {
+    $('html, body').animate({
+        scrollTop: $(anchor).offset().top
+    }, 500);
+};
+
+function menuItemClickInit() {
+    $('.header__link').on('click', function(e){
+        e.preventDefault();
+        var link = this;
+        var $link = $(link);
+        var anchor = $link.attr('href').replace('/','');
+
+        if($('#overlay').hasClass('open')) {
+            menuToggler();
+            setTimeout(function(){
+                scrollTo(anchor)
+            },300);
+        } else {
+            scrollTo(anchor)
+        }
+    })
 }
 
 app.home = function() {
@@ -155,8 +213,17 @@ app.home = function() {
 };
 
 
+// Create a new Particle
+
+$(function() {
+    if(winWidth > 980) {
+        new app.home();
+    }
+});
+
 $(function(){
     initBudgetSlider();
     formControl();
-
+    menuTogglerClickInit();
+    menuItemClickInit();
 });

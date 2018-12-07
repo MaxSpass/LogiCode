@@ -1,0 +1,91 @@
++from($break_sm + 1)
+    .header__mobile
+        display: none
+
+@include to($break_sm)
+    #toggle
+        display: block
+        position: absolute
+        top: 50%
+        right: 10px
+        transform: translateY(-50%)
+        cursor: pointer
+        z-index: 101
+        -webkit-transition: opacity .25s ease
+        transition: opacity .25s ease
+
+    .burger
+        position: relative
+        display: block
+        width: 44px
+        height: 32px
+        cursor: pointer
+
+    .burger i,.burger::after,.burger::before
+        display: block
+        position: absolute
+        left: 0
+        width: 100%
+        height: 2px
+        background: #000
+        content: ''
+
+    .burger i
+        top: 50%
+        transform: translate(0,-50%)
+        transition: all .125s linear 0s
+
+    .burger::after
+        bottom: 0
+        transition: background .125s linear 0s,bottom .125s linear .125s,transform .125s linear 0s
+
+    .burger::before
+        top: 0
+        transition: background .125s linear 0s,top .125s linear .125s,transform .125s linear 0s
+
+    .burger.active i
+        opacity: 0
+        width: 0
+        left: 50%
+        background: #fff
+
+    .burger.active::after
+        bottom: 50%
+        transform: translate(0,50%) rotate(45deg)
+        transition: bottom .125s linear 0s,transform .125s linear .125s
+        background: #fff
+
+    .burger.active::before
+        top: 50%
+        transform: translate(0,-50%) rotate(135deg)
+        transition: top .125s linear 0s,transform .125s linear .125s
+        background: #fff
+    .overlay
+        position: fixed
+        background: #000
+        top: 0
+        left: 0
+        width: 100%
+        height: 0%
+        opacity: 0
+        visibility: hidden
+        -webkit-transition: opacity .35s, visibility .35s, height .35s
+        transition: opacity .35s, visibility .35s, height .35s
+        overflow: hidden
+        z-index: 100
+        &.open
+            opacity: .95
+            visibility: visible
+            height: 100%
+            overflow: auto
+        nav
+            position: relative
+            height: 90%
+            top: 50%
+            -webkit-transform: translateY(-50%)
+            -ms-transform: translateY(-50%)
+            transform: translateY(-50%)
+            font-size: 50px
+            font-weight: 400
+            text-align: center
+
