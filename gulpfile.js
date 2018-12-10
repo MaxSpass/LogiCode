@@ -64,7 +64,7 @@ gulp.task('clear', function(){
 
 // Main Function WATCH
 gulp.task('default',['browserSync','minify-css','minify-js'], function(){
-	gulp.watch('app/sass/**/*.+(sass|scss)', ['sass']);
+	gulp.watch('app/sass/**/*.+(sass|scss)', ['sass', 'minify-css']);
 	gulp.watch('app/*.html', browserSync.reload);
 	gulp.watch('app/js/*.js', browserSync.reload);
 });
@@ -91,7 +91,6 @@ gulp.task('build',['clean', 'img', 'sass'], function(){
 	])
 	.pipe(gulp.dest('dist/css'));
 
-
 	var buildFonts = gulp.src('app/fonts/**/*')
 	.pipe(gulp.dest('dist/fonts'));
 
@@ -105,4 +104,11 @@ gulp.task('build',['clean', 'img', 'sass'], function(){
 
 	var buildJs = gulp.src('app/libs/**/*')
 	.pipe(gulp.dest('dist/libs'));
+
+	var buildFavicon = gulp.src('app/favicon.ico')
+		.pipe(gulp.dest('dist/'));
+
+	var buildHandler = gulp.src('app/handler.php')
+		.pipe(gulp.dest('dist/'));
+
 });

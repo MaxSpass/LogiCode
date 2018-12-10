@@ -132,10 +132,9 @@ function convertFormData(obj) {
 }
 
 function sendFormData(data) {
-    console.log('data',data);
-    $.ajax({
+    return $.ajax({
         data: data,
-        url: 'handler.php',
+        url: '../handler.php',
         method: 'post',
         dataType: 'json'
     })
@@ -158,12 +157,16 @@ function formHandler() {
             $(form).on('submit', function(e){e.preventDefault()});
             var data = $form.serializeArray();
             var coverted = convertFormData(data);
-            sendFormData(coverted);
-            $tnxBlock.addClass('show');
-            $form.trigger('reset');
-            setTimeout(function(){
-                $tnxBlock.removeClass('show')
-            },2500);
+            sendFormData(coverted)
+                .done(function(res){
+                    if(res.status) {
+                        $tnxBlock.addClass('show');
+                        $form.trigger('reset');
+                        setTimeout(function(){
+                            $tnxBlock.removeClass('show')
+                        },2500);
+                    }
+                });
         }
     });
 };

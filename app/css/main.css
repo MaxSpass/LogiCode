@@ -1765,8 +1765,8 @@ select {
   .burger {
     position: relative;
     display: block;
-    width: 44px;
-    height: 32px;
+    width: 36px;
+    height: 26px;
     cursor: pointer;
   }
 
