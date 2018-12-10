@@ -111,4 +111,7 @@ gulp.task('build',['clean', 'img', 'sass'], function(){
 	var buildHandler = gulp.src('app/handler.php')
 		.pipe(gulp.dest('dist/'));
 
+	var buildHtaccess = gulp.src('app/.htaccess')
+        .pipe(gulp.dest('dist/'));
+
 });
