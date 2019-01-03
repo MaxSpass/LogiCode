@@ -306,7 +306,7 @@ input:-webkit-autofill:active
 
 // feedback
 .feedback
-  padding: 60px 0
+  padding: 60px 0 100px 0
   background: $gradientToLeft
   background-size: cover
 
@@ -380,19 +380,22 @@ input:-webkit-autofill:active
     font-size: 12px
   .input-radio-wrap
     display: flex
+    flex-wrap: wrap
   .input-radio-item
+    margin: 2.5px 0
     &:not(:last-child)
       margin-right: 10px
   .input-radio
     display: none
     &:checked + .input-radio-label
-      background: rgba($greenLight, .5)
+      background: $greenLight
       color: #fff
   .input-radio-label
     display: inline-block
     border-radius: 25px
     padding: 8px 20px
-    background: rgba($greenLight, .25)
+    background: rgba($greenLight, .15)
+    user-select: none
     transition: all .3s ease
     font-size: 14px
     &:hover
@@ -419,7 +422,7 @@ select
       &:hover
         border-color: $greenDark
   &-textarea
-    height: 120px
+    height: 140px
     resize: none
     padding-left: 10px
     border: 1px solid rgba($greenLight, .5)
@@ -461,12 +464,13 @@ select
 
 .feedback__submit
   display: inline-block
-  padding: 20px 45px
+  width: 100%
+  padding: 20px 95px
   color: #fff
   transition: all .3s ease
   background: $greenLight
   letter-spacing: 1px
-  font-size: 18px
+  font-size: 16px
   font-weight: 100
   +from($break_md+1)
     &:hover
@@ -474,7 +478,7 @@ select
 
 // footer
 .footer
-  padding: 10px 0
+  padding: 20px 0
   text-align: center
   background: $greenDark
   color: #fff
@@ -549,7 +553,7 @@ select
   .tech__list
     display: flex
   .feedback
-    padding: 10px 0
+    padding: 10px 0 40px 0
   .feedback__inner
     padding: 20px
     margin-top: -0
