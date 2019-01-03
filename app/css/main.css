@@ -1848,6 +1848,7 @@ select {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    margin-bottom: 40px;
   }
 
   .feedback {
@@ -1983,7 +1984,7 @@ select {
 
   .overlay {
     position: fixed;
-    background: #000;
+    background: #12232a;
     top: 0;
     left: 0;
     width: 100%;
@@ -2044,7 +2045,7 @@ select {
   }
 
   .header__link {
-    color: #12232a;
+    color: #fff;
   }
 }
 

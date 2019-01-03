@@ -1292,9 +1292,9 @@ input:-webkit-autofill:active {
 }
 
 .tech .about__title {
-  line-height: 1;
+  line-height: 1.2;
   text-transform: uppercase;
-  font-size: 30px;
+  font-size: 28px;
 }
 
 .tech .about__title .tech__title-work {
@@ -1851,7 +1851,7 @@ select {
   }
 
   .feedback {
-    padding: 10px 0 40px 0;
+    padding: 40px 0;
   }
 
   .feedback__inner {
@@ -2065,6 +2065,10 @@ select {
   .container {
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  .tech .about__title {
+    font-size: 20px;
   }
 
   .main__front {
