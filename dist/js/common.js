@@ -163,9 +163,9 @@ function formHandler() {
                     if(res.status) {
                         $tnxBlock.addClass('show');
                         $form.trigger('reset');
-                        setTimeout(function(){
+/*                        setTimeout(function(){
                             $tnxBlock.removeClass('show')
-                        },2500);
+                        },2500);*/
                     }
                 });
         }
