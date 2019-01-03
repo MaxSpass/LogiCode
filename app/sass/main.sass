@@ -66,7 +66,7 @@ input:-webkit-autofill:active
   flex-wrap: wrap
 
 .logo
-  color: #000
+  color: $greenDark
   text-decoration: none
   font-family: $ffRusso
   font-size: 30px
@@ -95,11 +95,12 @@ input:-webkit-autofill:active
     height: 1px
     background: #000
     transition: all .3s ease-in-out
-  &:hover
-    &::after
-      width: 100%
-  &.focused
-    font-weight: 600
+  +from($break_md+1)
+    &:hover
+      &::after
+        width: 100%
+    &.focused
+      font-weight: 600
 
 // main
 .main
@@ -263,6 +264,7 @@ input:-webkit-autofill:active
 
 .tech__item
   display: flex
+  flex-direction: column
   align-items: center
   justify-content: center
   width: 150px
@@ -273,6 +275,14 @@ input:-webkit-autofill:active
   background: $greenDark
   font-size: 0
 
+.tech__img-wrap
+  display: block
+  width: 50px
+  height: 50px
+  margin-bottom: 15px
+  svg
+    fill: #fff
+
 .tech__link
   text-decoration: none
 
@@ -281,7 +291,9 @@ input:-webkit-autofill:active
 .tech__title
   color: #fff
   text-align: center
-  font-size: 18px
+  font-family: $ffHelv
+  font-weight: 300
+  font-size: 14px
 
 .tech .about__title
   line-height: 1
@@ -301,7 +313,7 @@ input:-webkit-autofill:active
 .feedback__title
 
 .feedback__ready
-  color: #000
+  color: $greenDark
   line-height: 1
   text-align: center
   font-weight: 400
@@ -366,6 +378,25 @@ input:-webkit-autofill:active
     color: red
     line-height: 1
     font-size: 12px
+  .input-radio-wrap
+    display: flex
+  .input-radio-item
+    &:not(:last-child)
+      margin-right: 10px
+  .input-radio
+    display: none
+    &:checked + .input-radio-label
+      background: rgba($greenLight, .5)
+      color: #fff
+  .input-radio-label
+    display: inline-block
+    border-radius: 25px
+    padding: 8px 20px
+    background: rgba($greenLight, .25)
+    transition: all .3s ease
+    font-size: 14px
+    &:hover
+      background: rgba($greenLight, .35)
 
 ::-webkit-input-placeholder,
 select
@@ -381,15 +412,19 @@ select
   background: transparent
   transition: all .3s ease
   border: none
-  border-bottom: 1px solid $greenLight
+  border-bottom: 1px solid rgba($greenLight, .5)
   z-index: 2
-  &:hover
-    border-color: $greenDark
+  &:not(textarea)
+    +from($break_md+1)
+      &:hover
+        border-color: $greenDark
   &-textarea
     height: 120px
     resize: none
     padding-left: 10px
-    border: 1px solid #000
+    border: 1px solid rgba($greenLight, .5)
+    &:focus
+      border-color: $greenDark
 
 .feedback__input_item.not-empty
   .feedback__label
@@ -421,7 +456,7 @@ select
     background: $formBg
     text-align: center
     margin-top: 15px
-    font-size: 18px
+    font-size: 14px
     font-weight: 300
 
 .feedback__submit
@@ -433,8 +468,9 @@ select
   letter-spacing: 1px
   font-size: 18px
   font-weight: 100
-  &:hover
-    background: $greenDark
+  +from($break_md+1)
+    &:hover
+      background: $greenDark
 
 // footer
 .footer
@@ -445,6 +481,7 @@ select
   font-weight: 100
 
 .footer__copyright
+  font-size: 16px
   &-web
 
 .svg__line
@@ -522,9 +559,12 @@ select
   .feedback__inner-top
     margin-top: 25px
   .feedback__label.budget
+    display: block
     margin-top: 10px
     margin-bottom: 10px
-    font-size: 16px
+    line-height: 1.3
+    font-size: 14px
+    z-index: 9
   .feedback__submit
     display: block
     margin: 0 auto
@@ -532,6 +572,39 @@ select
     max-width: 240px
 
 +from($break_sm+1)
+  .tech__item
+    transition: all .3s ease
+    &:hover
+      &.dot-net
+        background: #5C2D91
+      &.php
+        background: #777BB4
+      &.laravel
+        background: #E74430
+      &.symfony
+        background: #000
+      &.yii
+        background: #16a314
+      &.html
+        background: #E34F26
+      &.bootstrap
+        background: #563D7C
+      &.node
+        background: #339933
+      &.angular
+        background: #DD0031
+      &.react
+        background: #61DAFB
+      &.vue
+        background: #4FC08D
+      &.jquery
+        background: #0769AD
+      &.mongo
+        background: #47A248
+      &.mysql
+        background: #4479A1
+      &.wordpress
+        background: #21759B
   .header__item
     &:not(:last-child)
       margin-right: 30px
@@ -555,7 +628,7 @@ select
     margin: 30px auto
     justify-content: center
   .header__link
-    color: #fff
+    color: $greenDark
 
 +to($break_xs)
   .main__front

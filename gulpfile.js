@@ -11,8 +11,17 @@ var gulp 		 = require('gulp')
 	pngquant 	 = require('imagemin-pngquant'),
 	cache 		 = require('gulp-cache'),
 	del 		 = require('del'),
-	gcmq 		 = require('gulp-group-css-media-queries');
+	gcmq 		 = require('gulp-group-css-media-queries'),
 
+	// //for svg
+	multipipe      = require('multipipe'),
+	svgSprite      = require('gulp-svg-sprite'),
+	svgmin         = require('gulp-svgmin'),
+	cheerio        = require('gulp-cheerio'),
+	replace        = require('gulp-replace');
+
+
+var src = './app/';
 
 // SASS fuction
 gulp.task('sass',function(){
@@ -80,6 +89,43 @@ gulp.task('img',function(){
 	})))
 	.pipe(gulp.dest('dist/img'));
 });
+
+
+//SVG sprite
+gulp.task('sprite', function () {
+    return multipipe(
+        gulp.src(src + 'img/svg/sprite_in/*.svg'),
+        (svgmin({
+            js2svg: {
+                pretty: true
+            }
+        })),
+        (cheerio({
+            run: function ($) {
+                $('[fill]').removeAttr('fill');
+                $('[style]').removeAttr('style');
+                $('[data-name]').removeAttr('data-name');
+                $('style').remove();
+                $('title').remove();
+            },
+            parserOptions: {xmlMode: true}
+        })),
+        (replace('&gt;', '>')),
+        (svgSprite({
+            mode: {
+                symbol: {
+                    sprite: "../sprite.svg",
+                    render: {
+                        scss: {
+                            dest:'../sprite'
+                        }
+                    }
+                }
+            }
+        })),
+        (gulp.dest(src + 'img/svg/sprite_output')))
+});
+
 
 // Building
 gulp.task('build',['clean', 'img', 'sass'], function(){

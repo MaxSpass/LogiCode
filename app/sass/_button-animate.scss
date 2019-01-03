@@ -31,11 +31,13 @@ $borderWidth: 1px;
     transition: all 0.2s linear;
     background: #fff;
 }
-.button:hover::before, .button:hover::after{
-    width: 100%;
-}
-.button:hover span::before, .button:hover span::after{
-    height: 100%;
+@media screen and (min-width: 992px) {
+    .button:hover::before, .button:hover::after{
+        width: 100%;
+    }
+    .button:hover span::before, .button:hover span::after{
+        height: 100%;
+    }
 }
 /*----- .button 1 -----*/
 .btn-1::before, .btn-1::after{
@@ -60,11 +62,13 @@ $borderWidth: 1px;
     right: 0;
     bottom: 0;
 }
-.btn-1:hover::before, .btn-1:hover::after{
-    transition-delay: 0s;
-}
-.btn-1:hover span::before, .btn-1:hover span::after{
-    transition-delay: 0.2s;
+@media screen and (min-width: 992px) {
+    .btn-1:hover::before, .btn-1:hover::after{
+        transition-delay: 0s;
+    }
+    .btn-1:hover span::before, .btn-1:hover span::after{
+        transition-delay: 0.2s;
+    }
 }
 
 /*--- .button 2 -------*/
@@ -92,13 +96,14 @@ $borderWidth: 1px;
     right: 0;
     bottom: 0;
 }
-.btn-2:hover::before, .btn-2:hover::after{
-    transition-delay: 0.2s;
+@media screen and (min-width: 992px) {
+    .btn-2:hover::before, .btn-2:hover::after{
+        transition-delay: 0.2s;
+    }
+    .btn-2:hover span::before, .btn-2:hover span::after{
+        transition-delay: 0s;
+    }
 }
-.btn-2:hover span::before, .btn-2:hover span::after{
-    transition-delay: 0s;
-}
-
 
 /*----- .button 3 -----*/
 .btn-3::after{
@@ -121,18 +126,19 @@ $borderWidth: 1px;
     left: 0;
     top: 0;
 }
-
-.btn-3:hover::after{
-    transition-delay: 0s;
-}
-.btn-3:hover span::after{
-    transition-delay: 0.2s;
-}
-.btn-3:hover::before{
-    transition-delay: 0.4s;
-}
-.btn-3:hover span::before{
-    transition-delay: 0.6s;
+@media screen and (min-width: 992px) {
+    .btn-3:hover::after{
+        transition-delay: 0s;
+    }
+    .btn-3:hover span::after{
+        transition-delay: 0.2s;
+    }
+    .btn-3:hover::before{
+        transition-delay: 0.4s;
+    }
+    .btn-3:hover span::before{
+        transition-delay: 0.6s;
+    }
 }
 
 /*----- .button 4 -----*/
@@ -200,9 +206,11 @@ $borderWidth: 1px;
     top: 50%;
     transition-duration: 0.4s;
 }
-.btn-6:hover::before, .btn-6:hover::after{
-    left: 0;
-}
-.btn-6:hover span::before, .btn-6:hover span::after{
-    top: 0;
+@media screen and (min-width: 992px) {
+    .btn-6:hover::before, .btn-6:hover::after{
+        left: 0;
+    }
+    .btn-6:hover span::before, .btn-6:hover span::after{
+        top: 0;
+    }
 }

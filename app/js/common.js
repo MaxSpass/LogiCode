@@ -9,16 +9,17 @@ function initBudgetSlider() {
     window.slider = slider;
 
     var budget = [
-        "I don\'t know",
-        "10 000$",
-        "20 000$",
-        "30 000$",
-        "40 000$",
-        "50 000$",
-        "60 000$",
-        "70 000$",
-        "80 000$",
-        "90 000$"
+        "",
+        "$ 5,000",
+        "$ 10,000",
+        "$ 15,000",
+        "$ 20,000",
+        "$ 25,000",
+        "$ 30,000",
+        "$ 35,000",
+        "$ 40,000",
+        "$ 45,000",
+        "$ 50,000 or more"
     ];
 
     noUiSlider.create(slider, {
@@ -28,7 +29,7 @@ function initBudgetSlider() {
         animationDuration: 200,
         range: {
             'min': 0,
-            'max': 9
+            'max': 10
         }
     });
 
